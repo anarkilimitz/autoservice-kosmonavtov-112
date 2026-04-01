@@ -223,17 +223,19 @@ body.no-scroll {
 
 .logo__text {
 	margin-left: -60px;
-	width: 250px;
+	width: 290px;
 	text-align: left;
-	color: rgb(5, 28, 52);
+	color: rgba(0, 0, 0, 0.67);
 	font-size: 40px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 800;
 	line-height: normal;
 	font-family: 'Caveat', serif;
 	font-optical-sizing: auto;
-	font-style: normal;
-	font-weight: 900;
+
+	span {
+		color: #ffb300;
+	}
 }
 
 /* ------------- Logo effect--------------------------------- */
@@ -377,16 +379,15 @@ body.no-scroll {
 /* логотип */
 
 .logo-main {
-    display: block;
+	display: block;
 	margin-left: 60px;
-    z-index: 1000;
+	z-index: 1000;
 
-    max-width: 140px;
-    height: auto;
+	max-width: 140px;
+	height: auto;
 
-    cursor: default;
+	cursor: default;
 }
-
 
 .intensive__item {
 	width: 360px;
