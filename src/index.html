@@ -46,45 +46,47 @@
 </head>
 
 <body>
+	<!-- Шапка -->
 	<header class="header">
-		<div class="header__block">
-			<div class="header__links">
-				<a class="icon-mail" href="#" class="underlined">info@info.ru</a>
+		<div class="header__block container">
+
+			<div class="header__left">
+				<a class="icon-mail" href="mailto:info@info.ru">info@info.ru</a>
 			</div>
 
-			<div class="header__links">
-				<a class="icon-home" href="#map__city" class="underlined">Екатеринбург &mdash; Карта</a>
+			<div class="header__center">
+				<a class="icon-home" href="#map__city">Екатеринбург — Карта</a>
 			</div>
-			<a class="icon-phone" href="tel:+79655058651">+7 (965) 50 58 651</a>
-			<a class="icon-phone" href="tel:+79920950666">+7 (992) 09 50 666</a>
+
+			<div class="header__right">
+				<a class="icon-phone" href="tel:+79655058651">+7 (965) 50 58 651</a>
+				<a class="icon-phone" href="tel:+79920950666">+7 (992) 09 50 666</a>
+			</div>
+
 		</div>
 	</header>
 
 	<main>
+		<!-- Тайтл главная -->
 		<div class="intensive__wrapper">
-			<div class="container">
+			<div class="container header-line">
 				<h1 class="logo__text">«Космоавто<span>112</span>»</h1>
-				<!-- <img class="logo-main" src="img/logo/logo-example.png" alt="Логотип"> -->
+				<button class="btn" data-action="open-form">Отправить заявку</button>
 			</div>
-			<button class="btn btm-main" data-action="open-form">Отправить заявку</button>
 		</div>
 
 		<div class="container">
-			<div class="title__right">
-				<!-- <h1 class="title__colored">dfdfdf</h1> -->
-				<h2 class="subtitle">— Профессиональный кузовной и слесарный ремонт, стапельные работы. Аренда такси.
-				</h2>
+			<div class="subtitle">
+				<p>
+					— Профессиональный кузовной и слесарный ремонт, стапельные работы.<br>
+					Аренда такси.
+				</p>
 			</div>
 		</div>
 
-
+		<!-- Описание на главной -->
 		<section class="promo">
 			<div class="container">
-				<div class="title__right title__top">
-					<!-- <h2 class="title title__big">Автомобили класа: эконом, среднего и премиум класса от <span>2400
-							рублей!</span>
-					</h2> -->
-				</div>
 				<p class="promo__text">«Космоавто112» — ваш надёжный партнёр в обслуживании авто:<br>
 					Кузовной ремонт любой сложности: от мелкой царапины до восстановления геометрии кузова.<br>
 					Слесарные работы — качественно и оперативно.
@@ -94,21 +96,6 @@
 				</p>
 			</div>
 		</section>
-
-		<!-- ----------- Бренды авто -------------------- -->
-		<!-- <section class="container__brands">
-			<div class="brands__logo">
-				<img src="icons/Car-brands/Nissan.svg" alt="nissan">
-				<img src="icons/Car-brands/Acura.svg" alt="acura">
-				<img src="icons/Car-brands/Jaguar.svg" alt="jaguar">
-				<img src="icons/Car-brands/Volvo.svg" alt="volvo">
-				<img src="icons/Car-brands/Audi.svg" alt="audi">
-			</div>
-		</section> -->
-		<!-- -------- Дорога верхняя картинка ------------- -->
-		<!-- <section class="road__top"></section> -->
-
-		<!-- ----------- Услуги ----------------->
 
 		<section class="services container">
 			<h1 class="title title__services">Услуги и Цены</h1>
@@ -192,7 +179,6 @@
 			<div class="container">
 				<div class="slider-header">
 					<h2 class="title-slider">Фотографии наших работ</h2>
-					<!-- <h3 class="subtitle-slider">До / После ремонта</h3> -->
 				</div>
 
 				<div class="compare__wrapper">
@@ -249,60 +235,7 @@
 			</div>
 		</section>
 
-		<!-- -------------- Осаго -------------------------------- -->
-		<!-- <section class="present__intensive">
-			<div class="container">
-				<div><img src="icons/osago.svg" alt="present" class="present__img"></div>
-				<div class="present__wrapper">
-					<p class="present__text">У нас ОСАГО уже включено в стоимость аренды авто — никаких скрытых платежей
-						и дополнительных затрат. Мы заботимся о вашей безопасности и комфорте, чтобы вы могли
-						наслаждаться поездкой без лишних хлопот. Арендуйте с уверенностью, зная, что всё необходимое уже
-						учтено!</p>
-				</div>
-				<button class="btn primary" data-action="open-form">Связаться с нами</button>
-			</div>
-		</section> -->
-		<!-- -------- Дорога нижняя картинка ------------- -->
-		<!-- <section class="road__bottom"></section> -->
-		<!-- ------------- Оплата -------------------------- -->
-		<!-- <section>
-			<div class="container">
-				<div class="pay__wrapper">
-					<p class="pay__text">Вы можете выбрать разные способы оплаты: картой, наличными, переводом и другими
-						удобными для Вас способами.</p>
-				</div>
-				<div class="skills__wrapper">
-					<div class="skills__item">
-						<div class="pay__rectangle"><img src="icons/Pay-icons/Yandex.svg" alt="Cash"
-								class="skills__img">
-						</div>
-						<div class="skills__desc">Оплата наличными Cash</div>
-					</div>
-					<div class="skills__item">
-						<div class="pay__rectangle"><img src="icons/Pay-icons/Mastercard.svg" alt="Mastercard"
-								class="skills__img"></div>
-						<div class="skills__desc">Оплата через Mastercard</div>
-					</div>
-					<div class="skills__item">
-						<div class="pay__rectangle"><img src="icons/Pay-icons/ApplePay.svg" alt="ApplePay"
-								class="skills__img">
-						</div>
-						<div class="skills__desc">Оплата через<br>ApplePay</div>
-					</div>
-					<div class="skills__item">
-						<div class="pay__rectangle"><img src="icons/Pay-icons/Visa.svg" alt="Visa" class="skills__img">
-						</div>
-						<div class="skills__desc">Оплата через<br>Visa</div>
-					</div>
-					<div class="skills__item">
-						<div class="pay__rectangle"><img src="icons/Pay-icons/GooglePay.svg" alt="GooglePay"
-								class="skills__img">
-						</div>
-						<div class="skills__desc">Оплата через<br>GooglePay</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
+
 		<!-- -------------- Бегущая строка --------------  -->
 		<section>
 			<div class="scrolling-container">
@@ -329,7 +262,8 @@
 			<div class="footer__container">
 				<div class="footer__block">
 					<div class="footer__section footer__contacts">
-						<p>Позвоните нам: <a class="footer__link icon-phone" href="tel:+79655058651">+7 (965) 50 58 651</a></p>
+						<p>Позвоните нам: <a class="footer__link icon-phone" href="tel:+79655058651">+7 (965) 50 58
+								651</a></p>
 						<p><a class="footer__link icon-phone" href="tel:+79920950666">+7 (992) 09 50 666</a></p>
 						<p>Или напишите: <a class="footer__link email__footer icon-mail"
 								href="mailto:info@info.ru">info@info.ru</a></p>
