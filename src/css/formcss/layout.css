@@ -1,0 +1,49 @@
+.text-form {
+	text-align: center;
+	margin-bottom: 24px;
+	color: var(--text);
+	font-size: 24px;
+}
+
+.container-form {
+	position: fixed;
+	inset: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+
+	background: rgba(179, 179, 179, 0.32);
+	backdrop-filter: blur(6px);
+	z-index: 1000;
+}
+
+.container-form.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+}
+
+.card-form {
+	position: relative;
+	background: var(--glass);
+	backdrop-filter: blur(20px);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	padding: 32px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+	transform: scale(0.9);
+	opacity: 0;
+	transition: 0.4s ease;
+}
+
+.container-form.active .card-form {
+	transform: scale(1);
+	opacity: 1;
+}
