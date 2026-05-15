@@ -36,7 +36,10 @@ export function initForm() {
 
 		phone: [
 			{
-				validator: (v) => v.replace(/\D/g, '').length === 11,
+				validator: (v) => {
+					const onlyDigits = v.replace(/\D/g, '');
+					return onlyDigits.length >= 11;
+				},
 				message: 'Введите корректный номер',
 			},
 		],

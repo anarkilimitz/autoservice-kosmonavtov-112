@@ -1,53 +1,36 @@
+import IMask from 'imask';
+
 export function initPhoneMask() {
-	function phoneMask(input) {
-		function getDigits(v) {
-			return v.replace(/\D/g, '');
-		}
+	const elements = document.querySelectorAll('input[name="phone"]');
 
-		function format(d) {
-			if (!d) return '';
+	const maskOptions = {
+		mask: '+{7} (000) 000-00-00',
+		lazy: true,
+		placeholderChar: '_',
+		prepare: function (str, masked) {
+			if (str === '8' && masked.value === '') {
+				return '7';
+			}
+			return str;
+		},
+	};
 
-			if (d[0] === '8') d = '7' + d.slice(1);
-			if (d[0] !== '7') d = '7' + d;
+	elements.forEach((el) => {
+		const mask = IMask(el, maskOptions);
 
-			d = d.slice(0, 11);
-
-			let r = '+7';
-
-			if (d.length > 1) r += ' (' + d.slice(1, 4);
-			if (d.length >= 4) r += ') ' + d.slice(4, 7);
-			if (d.length >= 7) r += '-' + d.slice(7, 9);
-			if (d.length >= 9) r += '-' + d.slice(9, 11);
-
-			return r;
-		}
-
-		input.addEventListener('input', () => {
-			let digits = getDigits(input.value);
-
-			input.value = format(digits);
-		});
-
-		input.addEventListener('keydown', (e) => {
-			if (e.key !== 'Backspace') return;
-
-			const pos = input.selectionStart;
-
-			// если удаляем служебный символ — пропускаем его
-			if (/[()\-\s]/.test(input.value[pos - 1])) {
-				e.preventDefault();
-				input.setSelectionRange(pos - 1, pos - 1);
+		el.addEventListener('focus', () => {
+			if (!el.value) {
+				mask.value = '+7';
 			}
 		});
 
-		input.addEventListener('focus', () => {
-			if (!input.value) input.value = '+7 (';
+		el.addEventListener('blur', () => {
+			if (mask.unmaskedValue === '7' || mask.unmaskedValue === '') {
+				mask.value = '';
+			}
 		});
-
-		input.addEventListener('blur', () => {
-			if (getDigits(input.value).length <= 1) input.value = '';
+		mask.on('accept', () => {
+			el.dispatchEvent(new Event('input', { bubbles: true }));
 		});
-	}
-
-	document.querySelectorAll('input[name="phone"]').forEach(phoneMask);
+	});
 }

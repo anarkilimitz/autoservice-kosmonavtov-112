@@ -763,7 +763,9 @@ body.no-scroll {
 	justify-content: space-between;
 	padding: 10px 0;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-	font-size: 15px;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
 	color: #e8f1fb;
 	opacity: 0; /* Для анимации появления текста */
 	transition: 0.3s;

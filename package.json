@@ -15,5 +15,8 @@
   "devDependencies": {
     "vite": "^8.0.3",
     "vite-plugin-imagemin": "^0.6.1"
+  },
+  "dependencies": {
+    "imask": "^7.6.1"
   }
 }
