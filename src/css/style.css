@@ -331,6 +331,17 @@ body.no-scroll {
 	object-fit: cover;
 }
 
+.scrolling-title {
+	margin-bottom: 60px;
+	margin-top: 60px;
+	font-size: 36px;
+	font-weight: 600;
+	color: #000c41;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
 @keyframes scroll {
 	0% {
 		transform: translateX(0%);
