@@ -6,6 +6,7 @@
 }
 
 .container-form {
+	padding: 5px;
 	position: fixed;
 	inset: 0;
 
