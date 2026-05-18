@@ -602,7 +602,7 @@ body.no-scroll {
 .beforeSwiper,
 .afterSwiper {
 	position: relative;
-	width: 100%;
+	width: 85%;
 	height: 700px;
 	border-radius: 10px;
 }
