@@ -15,7 +15,7 @@ export function initForm() {
 		firstName: [
 			{
 				validator: (v) => /^[a-zA-Zа-яА-ЯёЁ-]+$/.test(v),
-				message: 'Только буквы',
+				message: 'Только буквы без пробелов',
 			},
 			{
 				validator: (v) => v.length >= 2,
@@ -23,16 +23,16 @@ export function initForm() {
 			},
 		],
 
-		lastName: [
-			{
-				validator: (v) => /^[a-zA-Zа-яА-ЯёЁ-]+$/.test(v),
-				message: 'Только буквы',
-			},
-			{
-				validator: (v) => v.length >= 2,
-				message: 'Минимум 2 символа',
-			},
-		],
+		// lastName: [
+		// 	{
+		// 		validator: (v) => /^[a-zA-Zа-яА-ЯёЁ-]+$/.test(v),
+		// 		message: 'Только буквы',
+		// 	},
+		// 	{
+		// 		validator: (v) => v.length >= 2,
+		// 		message: 'Минимум 2 символа',
+		// 	},
+		// ],
 
 		phone: [
 			{
@@ -44,12 +44,12 @@ export function initForm() {
 			},
 		],
 
-		email: [
-			{
-				validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-				message: 'Неверный email',
-			},
-		],
+		// email: [
+		// 	{
+		// 		validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+		// 		message: 'Неверный email',
+		// 	},
+		// ],
 
 		message: [
 			{
