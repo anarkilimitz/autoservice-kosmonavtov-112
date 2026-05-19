@@ -354,16 +354,58 @@ body.no-scroll {
 	animation: scroll 60s linear infinite;
 }
 
-.scrolling-wrapper img {
+/* Обертка*/
+.scroll-item {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+
 	width: 80vh;
 	min-width: 810px;
 	height: 585px;
 	margin: 0 10px;
-	display: inline-block;
-	vertical-align: middle;
+
 	border-radius: 10px;
-	max-inline-size: none;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.scroll-item img {
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+	display: block;
+
+	transition: transform 0.3s ease-in-out;
+}
+
+.scroll-item:hover img {
+	transform: scale(1.02);
+}
+
+.price-label {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+
+	background: rgba(255, 255, 255, 0.628);
+
+	color: #000c41;
+	padding: 10px 40px;
+	border-radius: 8px;
+	font-size: 24px;
+	font-weight: 600;
+
+	box-shadow: 0 4px 15px rgba(43, 14, 115, 0.427);
+	z-index: 2;
+
+	transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.scroll-item:hover .price-label {
+	background: #f9bf3b;
+	color: #000;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .scrolling-title {
@@ -387,18 +429,27 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
+	.scroll-item {
+		width: 10%;
+		min-width: 490px;
+		height: 360px;
+		margin: 0 5px;
+	}
+
 	.scrolling-title {
 		margin-top: 0px;
 		margin-bottom: 100px;
 	}
 
-	.scrolling-wrapper img {
-		width: 80vw; /* увеличил ширину для мобильных */
-		margin: 0 5px;
+	.scrolling-wrapper {
+		animation-duration: 30s;
 	}
 
-	.scrolling-wrapper {
-		animation-duration: 40s;
+	.price-label {
+		font-size: 16px;
+		padding: 8px 15px;
+		top: 10px;
+		left: 10px;
 	}
 }
 
@@ -770,6 +821,7 @@ body.no-scroll {
 }
 
 .services__item {
+	min-width: 320px;
 	flex: 1;
 	background: #1e2030;
 	border-radius: 12px;
@@ -876,5 +928,54 @@ body.no-scroll {
 	.services__grid {
 		flex-direction: column;
 		padding: 60px 0 20px 0;
+	}
+}
+
+/* Политика конфиденциальности */
+
+.privacy {
+	padding: 80px 7px;
+	.title {
+		font-size: 36px;
+		font-weight: 500;
+	}
+}
+.privacy__back {
+	display: block;
+	margin-bottom: 30px;
+	color: black;
+	text-decoration: none;
+	font-weight: 700;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.privacy__content {
+	margin-top: 40px;
+	line-height: 1.6;
+	color: #000000;
+
+	h3 {
+		margin: 30px 0 15px 0;
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	p {
+		margin-bottom: 15px;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	ul {
+		margin-bottom: 20px;
+		padding-left: 20px;
+
+		li {
+			list-style-type: disc;
+			margin-bottom: 5px;
+		}
 	}
 }
