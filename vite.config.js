@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
+import { resolve } from 'path';
 
 export default defineConfig({
 	root: 'src',
-	
+
 	publicDir: '../public',
 
 	server: {
@@ -14,10 +15,14 @@ export default defineConfig({
 	build: {
 		outDir: '../dist',
 		emptyOutDir: true,
-
 		assetsDir: 'assets', // картинки/js/css будут тут
 
 		rollupOptions: {
+			input: {
+				main: resolve(__dirname, 'src/index.html'),
+				policy: resolve(__dirname, 'src/privacy.html'),
+			},
+
 			output: {
 				assetFileNames: 'assets/[name]-[hash][extname]',
 				chunkFileNames: 'assets/[name]-[hash].js',
