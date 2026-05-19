@@ -23,17 +23,6 @@ export function initForm() {
 			},
 		],
 
-		// lastName: [
-		// 	{
-		// 		validator: (v) => /^[a-zA-Zа-яА-ЯёЁ-]+$/.test(v),
-		// 		message: 'Только буквы',
-		// 	},
-		// 	{
-		// 		validator: (v) => v.length >= 2,
-		// 		message: 'Минимум 2 символа',
-		// 	},
-		// ],
-
 		phone: [
 			{
 				validator: (v) => {
@@ -43,13 +32,6 @@ export function initForm() {
 				message: 'Введите корректный номер',
 			},
 		],
-
-		// email: [
-		// 	{
-		// 		validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-		// 		message: 'Неверный email',
-		// 	},
-		// ],
 
 		message: [
 			{
@@ -67,32 +49,57 @@ export function initForm() {
 	});
 
 	// отправка формы
-	form.addEventListener('submit', (e) => {
+	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
 
 		if (!validator.validateForm()) return;
 
+		// Визуальное состояние загрузки
 		btn.classList.add('loading');
 		btn.disabled = true;
+		const oldText = btnTextEl.textContent;
+		btnTextEl.textContent = 'Отправка...';
 
-		if (btnTextEl) {
-			btnTextEl.textContent = 'Отправка...';
-		} else {
-			btn.textContent = 'Отправка...';
-		}
+		// Сбор данных формы
+		const formData = new FormData(form);
 
-		setTimeout(() => {
-			btn.classList.remove('loading');
-			btn.disabled = false;
+		try {
+			// Отправка на сервер (файл mail.php)
+			const response = await fetch('mail.php', {
+				method: 'POST',
+				body: formData,
+			});
 
-			if (btnTextEl) {
-				btnTextEl.textContent = defaultBtnText;
+			const result = await response.json();
+
+			if (response.ok && result.status === 'success') {
+				// УСПЕХ
+				btnTextEl.textContent = 'Отправлено!';
+				// Можно добавить класс success для визуализации
+				form.reset();
+				validator.reset();
+
+				// Вернуть кнопку в исходное состояние через 2 сек
+				setTimeout(() => {
+					btn.classList.remove('loading');
+					btn.disabled = false;
+					btnTextEl.textContent = defaultBtnText;
+				}, 2000);
 			} else {
-				btn.textContent = defaultBtnText;
+				// ОШИБКА СЕРВЕРА
+				throw new Error(result.message || 'Ошибка сервера');
 			}
+		} catch (error) {
+			console.error(error);
+			btnTextEl.textContent = 'Ошибка!';
+			btn.style.backgroundColor = '#ff4d4d'; // Красный цвет кнопки для ошибки
 
-			form.reset(); // очищаем значения
-			validator.reset(); // очищаем состояние валидации
-		}, 2000);
+			setTimeout(() => {
+				btn.classList.remove('loading');
+				btn.disabled = false;
+				btn.style.backgroundColor = ''; // Вернуть цвет
+				btnTextEl.textContent = defaultBtnText;
+			}, 2000);
+		}
 	});
 }

@@ -3,6 +3,8 @@ import viteImagemin from 'vite-plugin-imagemin';
 
 export default defineConfig({
 	root: 'src',
+	
+	publicDir: '../public',
 
 	server: {
 		port: 5173,
