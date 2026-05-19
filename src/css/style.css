@@ -469,6 +469,10 @@ body.no-scroll {
 
 /* ---------- Map ------------------------------------ */
 
+iframe {
+	border: none;
+}
+
 .map__address {
 	height: 400px;
 	margin: 20px;
