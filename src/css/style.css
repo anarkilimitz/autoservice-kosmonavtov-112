@@ -747,8 +747,8 @@ iframe {
 
 .beforeSwiper .swiper-button-prev,
 .beforeSwiper .swiper-button-next {
-	color: white;
-	background: rgba(255, 255, 255, 0.5);
+	color: #000000;
+	background: rgb(255, 255, 255);
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
@@ -780,6 +780,7 @@ iframe {
 .beforeSwiper .swiper-button-next:hover {
 	background: linear-gradient(110deg, #ffc131 45%, #000000 50%);
 	transform: translateY(-50%) scale(1.1);
+	color: #ffffff;
 }
 
 /* адаптив */
