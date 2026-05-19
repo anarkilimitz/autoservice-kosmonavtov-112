@@ -42,12 +42,12 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = SMTP_PORT;
 
-    $mail->setFrom(SMTP_USER, 'Сайт Обратная Связь');
+    $mail->setFrom(SMTP_USER, 'КосмоАвто112');
     $mail->addAddress(MAIL_TO, MAIL_TO_NAME);
     
     $mail->CharSet = 'UTF-8';
     $mail->isHTML(true);
-    $mail->Subject = 'Заявка с сайта от ' . $name;
+    $mail->Subject = 'Заявка с сайта КосмоАвто112 от ' . $name;
     
     $mail->Body = "
         <h2>Новая заявка</h2>

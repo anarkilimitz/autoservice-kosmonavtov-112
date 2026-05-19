@@ -73,18 +73,18 @@ export function initForm() {
 			const result = await response.json();
 
 			if (response.ok && result.status === 'success') {
-				// УСПЕХ
+				
 				btnTextEl.textContent = 'Отправлено!';
 				// Можно добавить класс success для визуализации
 				form.reset();
 				validator.reset();
 
-				// Вернуть кнопку в исходное состояние через 2 сек
+				// Вернуть кнопку в исходное состояние через 3 сек
 				setTimeout(() => {
 					btn.classList.remove('loading');
 					btn.disabled = false;
 					btnTextEl.textContent = defaultBtnText;
-				}, 2000);
+				}, 3000);
 			} else {
 				// ОШИБКА СЕРВЕРА
 				throw new Error(result.message || 'Ошибка сервера');
@@ -92,7 +92,7 @@ export function initForm() {
 		} catch (error) {
 			console.error(error);
 			btnTextEl.textContent = 'Ошибка!';
-			btn.style.backgroundColor = '#ff4d4d'; // Красный цвет кнопки для ошибки
+			btn.style.backgroundColor = '#ff4d4d';
 
 			setTimeout(() => {
 				btn.classList.remove('loading');
