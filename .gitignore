@@ -1,5 +1,7 @@
 public/config.php
 config.php
+mailer
+public
 # Logs
 logs
 *.log
